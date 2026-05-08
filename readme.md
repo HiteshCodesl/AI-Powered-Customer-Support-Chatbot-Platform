@@ -213,8 +213,7 @@ You will also need free accounts on:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/ai-support-system.git
-cd ai-support-system
+git clone https://github.com/HiteshCodesl/AI-Powered-Customer-Support-Chatbot-Platform.git
 ```
 
 ---
