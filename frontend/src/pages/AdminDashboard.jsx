@@ -2,11 +2,15 @@ import { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import API from '../api/axios';
 import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
 
 export default function AdminDashboard() {
   const [stats, setStats] = useState(null);
-  const { logout } = useAuth();
-
+  const { user, logout } = useAuth();
+  
+  const navigate = useNavigate();
+  
   useEffect(() => {
     API.get('/admin/stats').then(({ data }) => setStats(data));
   }, []);
@@ -21,10 +25,34 @@ export default function AdminDashboard() {
 
   return (
     <div className="min-h-screen bg-gray-950 text-white p-6">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-2xl font-bold">Admin Dashboard</h1>
-        <button onClick={logout} className="text-gray-400 hover:text-white text-sm">Logout</button>
-      </div>
+     <div className="flex flex-wrap justify-between items-center gap-4 mb-8">
+  <div>
+    <h1 className="text-2xl font-bold text-white">Admin Dashboard</h1>
+    <p className="text-gray-400 text-sm mt-0.5">Welcome back, {user?.name}</p>
+  </div>
+
+  {/* Nav buttons */}
+  <div className="flex items-center gap-3">
+    <button
+      onClick={() => navigate('/tickets')}
+      className="flex items-center gap-2 bg-yellow-500/20 hover:bg-yellow-500/30 border border-yellow-500/30 text-yellow-400 hover:text-yellow-300 text-sm px-4 py-2 rounded-lg transition"
+    >
+      🎫 View All Tickets
+    </button>
+    <button
+      onClick={() => navigate('/chat')}
+      className="flex items-center gap-2 bg-purple-600/20 hover:bg-purple-600/40 border border-purple-600/40 text-purple-300 hover:text-white text-sm px-4 py-2 rounded-lg transition"
+    >
+      💬 Chat
+    </button>
+    <button
+      onClick={logout}
+      className="text-gray-400 hover:text-white text-sm transition"
+    >
+      Logout
+    </button>
+  </div>
+</div>
 
       {/* Stats Cards */}
       {stats && (

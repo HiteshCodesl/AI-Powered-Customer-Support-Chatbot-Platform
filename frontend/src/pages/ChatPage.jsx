@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import API from '../api/axios';
 import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function ChatPage() {
   const [messages, setMessages] = useState([]);
@@ -9,7 +10,9 @@ export default function ChatPage() {
   const { user, logout } = useAuth();
   const bottomRef = useRef(null);
 
-  // Load history on mount
+
+  const navigate = useNavigate();
+
   useEffect(() => {
     API.get('/chat/history').then(({ data }) => {
       const history = data.reverse().flatMap(c => ([
@@ -47,15 +50,30 @@ export default function ChatPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-950 flex flex-col">
+    <div className="min-h-screen bg-gray-950 flex-col flex">
       {/* Header */}
-      <div className="bg-gray-900 border-b border-purple-900 px-6 py-4 flex justify-between items-center">
-        <div>
-          <h1 className="text-white font-bold text-lg">AI Support Chat</h1>
-          <p className="text-gray-400 text-sm">Hello, {user?.name}</p>
-        </div>
-        <button onClick={logout} className="text-gray-400 hover:text-white text-sm transition">Logout</button>
-      </div>
+     <div className="bg-gray-900 border-b border-purple-900  flex justify-between items-center gap-3 fixed top-0 px-6 py-4  mx-auto w-full">
+  <div>
+    <h1 className="text-white font-bold text-lg">NeuralChat</h1>
+    <p className="text-gray-400 text-sm">Hello, {user?.name}</p>
+  </div>
+
+  {/* Nav buttons */}
+  <div className="flex items-center gap-3">
+    <button
+      onClick={() => navigate('/tickets')}
+      className="flex items-center gap-2 bg-purple-600/20 hover:bg-purple-600/40 border border-purple-600/40 text-purple-300 hover:text-white text-sm px-4 py-2 rounded-lg transition"
+    >
+      🎫 My Tickets
+    </button>
+    <button
+      onClick={logout}
+      className="text-gray-400 hover:text-white text-sm transition"
+    >
+      Logout
+    </button>
+  </div>
+</div>
 
       {/* Messages */}
       <div className="flex-1 overflow-y-auto p-6 space-y-4 max-w-3xl mx-auto w-full">
