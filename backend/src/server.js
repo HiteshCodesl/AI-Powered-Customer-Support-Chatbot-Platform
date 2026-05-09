@@ -23,7 +23,6 @@ app.use('/api/tickets', ticketRouter);
 app.use('/api/faqs', faqRouter);
 app.use('/api/admin', adminRouter);
 
-
 app.get('/', (req, res) => res.send('API is running...'));
 
 const PORT = process.env.PORT;

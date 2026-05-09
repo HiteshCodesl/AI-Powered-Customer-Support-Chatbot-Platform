@@ -5,7 +5,7 @@ A full-stack AI-powered customer support platform with a chatbot, ticket managem
 ![Tech Stack](https://img.shields.io/badge/Frontend-React_+_Tailwind-blueviolet)
 ![Tech Stack](https://img.shields.io/badge/Backend-Node.js_+_Express-green)
 ![Tech Stack](https://img.shields.io/badge/Database-MongoDB_Atlas-brightgreen)
-![Tech Stack](https://img.shields.io/badge/AI-OpenAI_/_Gemini-orange)
+![Tech Stack](https://img.shields.io/badge/Grok_/_Gemini-orange)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 
 ---
