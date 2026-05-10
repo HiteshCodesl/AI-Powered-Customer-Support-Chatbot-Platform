@@ -131,12 +131,12 @@ export default function ChatPage() {
       <div className="shrink-0 border-t border-gray-800 bg-gray-950">
         <div className="max-w-3xl mx-auto px-4 sm:px-6">
 
-          <div className="flex flex-wrap gap-2 pt-3 pb-2 my-3">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2 pt-3 pb-2 my-3">
             {SUGGESTIONS.map((s) => (
               <button
                 key={s.label}
                 onClick={() => sendMessage(s.message)}
-                className="text-md bg-gray-800 hover:bg-purple-600/30 border border-white hover:border-purple-500 text-gray-300 hover:text-white px-3 py-1.5 rounded-xl transition"
+                className="text-sm bg-gray-800 hover:bg-purple-600/30 border border-white hover:border-purple-500 text-gray-300 hover:text-white px-2 py-1 md:px-2 md:py-2 rounded-xl transition"
               >
                 {s.label}
               </button>
