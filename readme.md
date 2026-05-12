@@ -98,7 +98,7 @@ AI Customer Support System is a beginner-friendly yet visually impressive full-s
 | Backend | Node.js, Express.js |
 | Database | MongoDB Atlas, Mongoose |
 | Authentication | JWT, bcryptjs |
-| AI Integration | OpenAI API (GPT-3.5-turbo) or Gemini API |
+| AI Integration | GROK API or Gemini API |
 | Deployment | Vercel (frontend), Render (backend), MongoDB Atlas |
 
 ---
