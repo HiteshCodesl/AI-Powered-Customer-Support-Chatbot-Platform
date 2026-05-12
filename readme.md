@@ -201,7 +201,7 @@ Make sure you have these installed before starting:
 
 You will also need free accounts on:
 - [MongoDB Atlas](https://mongodb.com/atlas) — cloud database
-- [OpenAI Platform](https://platform.openai.com) — AI API key
+- [GrokAI Platform](https://Grok.com) — AI API key
 - [GitHub](https://github.com) — code hosting
 - [Render](https://render.com) — backend deployment
 - [Vercel](https://vercel.com) — frontend deployment
